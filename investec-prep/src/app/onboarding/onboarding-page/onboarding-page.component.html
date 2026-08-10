@@ -1,0 +1,19 @@
+<section class="onboarding">
+  <h2>Business Onboarding — applications</h2>
+
+  <app-applicant-list
+    [applicants]="applicants"
+    [selectedId]="selectedId"
+    (selected)="onSelected($event)"
+  ></app-applicant-list>
+
+  <app-applicant-card
+    *ngIf="selectedApplicant as applicant"
+    [applicant]="applicant"
+    (approved)="onApproved($event)"
+    (rejected)="onRejected($event)"
+  >
+    <!-- This lands in the card's <ng-content> slot -->
+    <small>Reviewed by the onboarding team · ref {{ applicant.id }}</small>
+  </app-applicant-card>
+</section>

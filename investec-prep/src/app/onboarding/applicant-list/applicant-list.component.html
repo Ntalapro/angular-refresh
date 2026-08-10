@@ -1,0 +1,10 @@
+<ul class="applicant-list">
+  <li
+    *ngFor="let applicant of applicants; trackBy: trackById"
+    [class.selected]="applicant.id === selectedId"
+  >
+    <button (click)="selected.emit(applicant.id)">
+      {{ applicant.businessName }} — {{ applicant.status }}
+    </button>
+  </li>
+</ul>

@@ -1,0 +1,17 @@
+<article class="card">
+  <h3>{{ applicant.businessName }}</h3>
+  <p>Registration: {{ applicant.registrationNumber }}</p>
+  <p>Status: {{ applicant.status }}</p>
+
+  <button (click)="approved.emit(applicant.id)" [disabled]="applicant.status === 'approved'">
+    Approve
+  </button>
+  <button (click)="rejected.emit(applicant.id)" [disabled]="applicant.status === 'rejected'">
+    Reject
+  </button>
+
+  <!-- Content projection: the parent decides what goes here. -->
+  <footer>
+    <ng-content></ng-content>
+  </footer>
+</article>

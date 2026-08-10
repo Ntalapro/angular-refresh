@@ -1,11 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { OnboardingModule } from './onboarding/onboarding.module';
 
 describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
+      // TestBed builds its own module per spec — it knows nothing about
+      // AppModule, so anything the template needs must be provided here.
+      imports: [RouterTestingModule, OnboardingModule],
       declarations: [AppComponent],
     });
   });
