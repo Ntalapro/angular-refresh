@@ -1,0 +1,25 @@
+<main class="app-shell">
+  <h1>{{ title }}</h1>
+
+  <section class="lesson">
+    <h2>Lesson 1 — Foundations (Angular 16 idioms)</h2>
+
+    <p>Counter value: {{ count }}</p>
+    <p>Double (getter): {{ double }}</p>
+
+    <button (click)="increment()">Increment</button>
+    <button (click)="reset()" [disabled]="count === 0">Reset</button>
+
+    <p *ngIf="count > 5; else keepGoing" class="warn">That's a lot of clicks!</p>
+    <ng-template #keepGoing>
+      <p *ngIf="count > 0">Keep going…</p>
+    </ng-template>
+
+    <ul>
+      <li *ngFor="let item of items; trackBy: trackById">{{ item.name }}</li>
+    </ul>
+    <p *ngIf="items.length === 0">No items yet.</p>
+  </section>
+
+  <router-outlet></router-outlet>
+</main>
